@@ -12,7 +12,11 @@ import D3LinePlot from './D3LinePlot';
 const App = () => {
   const dataLoader = async () => {
     // Example data loading function
-    return [-3, -2, -1, 0, 1, 2, 3];
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([-3, -2, -1, 0, 1, 2, 3]);
+      }, 5000); // 5 seconds delay, so you see that sth is loading
+    });
   };
 
   return (
