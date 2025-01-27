@@ -107,17 +107,17 @@ To compile and run the project, follow these steps:
    cd path/to/your/project
    ```
 
-   2. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-   3. **Start the development server**:
+3. **Start the development server**:
    ```bash
    npm start
    ```
 
-   4. **Build for production**:
+4. **Build for production**:
    ```bash
    npm run build
    ```

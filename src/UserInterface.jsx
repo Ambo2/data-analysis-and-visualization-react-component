@@ -52,20 +52,23 @@ const UserInterface = () => {
   }, []);
 
   return (
-    <Container>
-      <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
-        <FormControl fullWidth variant="outlined">
-          <InputLabel>Data Loader</InputLabel>
-          <Select
-            value={selectedDataLoaderKey}
-            onChange={handleChange}
-            label="Data Loader"
-          >
-            <MenuItem value="1">Example Data Loader 1</MenuItem>
-            <MenuItem value="2">Example Data Loader 2</MenuItem>
-            <MenuItem value="3">Example Data Loader 3</MenuItem>
-          </Select>
-        </FormControl>
+    <Container component="main">
+      <Paper component="section" elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
+        <form>
+          <FormControl component="fieldset" fullWidth variant="outlined">
+            <InputLabel htmlFor="data-loader-select">Data Loader</InputLabel>
+            <Select
+              id="data-loader-select"
+              value={selectedDataLoaderKey}
+              onChange={handleChange}
+              label="Data Loader"
+            >
+              <MenuItem value="1">Example Data Loader 1</MenuItem>
+              <MenuItem value="2">Example Data Loader 2</MenuItem>
+              <MenuItem value="3">Example Data Loader 3</MenuItem>
+            </Select>
+          </FormControl>
+        </form>
       </Paper>
       <DataAnalysisAndVisualization key={selectedDataLoaderKey} dataLoader={selectedDataLoader}>
         <NumericValidator />

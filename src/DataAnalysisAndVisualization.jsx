@@ -71,25 +71,25 @@ const DataAnalysisAndVisualization = ({ dataLoader, children }) => {
 
   if (loading) {
     return (
-      <main>
+      <section>
         <CircularProgress />
-      </main>
+      </section>
     );
   }
 
   if (error) {
     return (
-      <main>
+      <section>
         <Alert severity="error">
           <AlertTitle>Error</AlertTitle>
           {error}
         </Alert>
-      </main>
+      </section>
     );
   }
 
   return (
-    <main>
+    <section>
       {React.Children.count(children) === 3 ? (
         React.cloneElement(children[2], { data })
       ) : (
@@ -98,7 +98,7 @@ const DataAnalysisAndVisualization = ({ dataLoader, children }) => {
           Incorrect number of child components.
         </Alert>
       )}
-    </main>
+    </section>
   );
 };
 
