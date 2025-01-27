@@ -76,6 +76,10 @@ export default App;
 
 ### Components
 
+#### UserInterface Component
+
+Enables users to select different data loaders and visualize the results using the `DataAnalysisAndVisualization` component. See the implementation in [`UserInterface.jsx`](./src/UserInterface.jsx).
+
 #### DataAnalysisAndVisualization
 
 The main component that orchestrates the data processing pipeline. See the implementation in [`DataAnalysisAndVisualization.jsx`](./src/DataAnalysisAndVisualization.jsx).
@@ -87,6 +91,8 @@ A sample validator component that checks if all data items are numeric. See the 
 #### ParableAnalyzer
 
 A sample analyzer component that squares all numeric data items. See the implementation in [`ParableAnalyzer.jsx`](./src/ParableAnalyzer.jsx).
+
+Another approach could involve returning points for a parabolic regression. But not in this simple example.
 
 #### D3LinePlot
 
