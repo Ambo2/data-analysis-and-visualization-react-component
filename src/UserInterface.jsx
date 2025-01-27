@@ -31,14 +31,14 @@ const UserInterface = () => {
   // Map of data loader keys to their respective data loader functions.
   const dataLoaderMap = {
     '1': dataLoader([-3, -2, -1, 0, 1, 2, 3]),
-    '2': dataLoader([-2, 2, 3]),
+    '2': dataLoader([-2, 0, 2, 4]),
     '3': dataLoader([1, 2, 3, 4, 5]),
   };
 
   // State for keeping track of the selected data loader key.
   const [selectedDataLoaderKey, setSelectedDataLoaderKey] = useState('1');
   // State for keeping track of the selected data loader function.
-  const [selectedDataLoader, setSelectedDataLoader] = useState(() => dataLoaderMap['1']);
+  const [selectedDataLoader, setSelectedDataLoader] = useState(() => dataLoaderMap[selectedDataLoaderKey]);
 
   /**
    * Handles the change event for the data loader selection dropdown.

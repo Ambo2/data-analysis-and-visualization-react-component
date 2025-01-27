@@ -92,7 +92,7 @@ A sample validator component that checks if all data items are numeric. See the 
 
 A sample analyzer component that squares all numeric data items. See the implementation in [`ParableAnalyzer.jsx`](./src/ParableAnalyzer.jsx).
 
-Another approach could involve returning points for a parabolic regression. But not in this simple example.
+Another approach could involve returning points for a parabolic regression (would be better). But not in this simple example.
 
 #### D3LinePlot
 
