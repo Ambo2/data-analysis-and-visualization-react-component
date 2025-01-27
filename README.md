@@ -98,6 +98,10 @@ Another approach could involve returning points for a parabolic regression. But 
 
 A D3.js component for visualizing data as a line plot. See the implementation in [`D3LinePlot.jsx`](./src/D3LinePlot.jsx).
 
+#### SvgDownloadButton Component
+
+Allows user to download the plot in one of the formats SVG, PNG, JPG. See the implementation in [`SvgDownloadButton.jsx`](./src/SvgDownloadButton.jsx).
+
 ## Running the Project
 
 To compile and run the project, follow these steps:

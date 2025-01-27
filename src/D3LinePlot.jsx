@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
+import SvgDownloadButton from "./SvgDownloadButton"
 
 /**
  * A reusable React component for data visualization using D3.js.
@@ -63,7 +64,12 @@ const D3LinePlot = ({ data, width, height }) => {
 
   }, [data, width, height]);
 
-  return <svg ref={ref}></svg>;
+  return (
+    <>
+      <svg ref={ref}></svg>
+      <SvgDownloadButton svgRef={ref} />
+    </>
+  );
 };
 
 D3LinePlot.propTypes = {

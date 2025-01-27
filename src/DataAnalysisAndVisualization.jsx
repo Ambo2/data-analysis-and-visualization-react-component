@@ -72,7 +72,9 @@ const DataAnalysisAndVisualization = ({ dataLoader, children }) => {
   if (loading) {
     return (
       <section>
-        <CircularProgress />
+        <center>
+          <CircularProgress />
+        </center>
       </section>
     );
   }
