@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { Button, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 
 /**
- * D3DownloadButton component provides a button to download the SVG plot
+ * SvgDownloadButton component provides a button to download the SVG plot
  * in various formats (SVG, PNG, JPG) with the option to select the format.
  *
  * @param {Object} props - Component properties.
  * @param {React.RefObject} props.svgRef - Reference to the SVG element.
  * @returns {JSX.Element} The rendered component.
  */
-const D3DownloadButton = ({ svgRef }) => {
+const SvgDownloadButton = ({ svgRef }) => {
   // State to manage the selected download format (default is SVG).
   const [format, setFormat] = useState('svg');
 
@@ -94,8 +94,8 @@ const D3DownloadButton = ({ svgRef }) => {
   );
 };
 
-D3DownloadButton.propTypes = {
+SvgDownloadButton.propTypes = {
   svgRef: PropTypes.object.isRequired,
 };
 
-export default D3DownloadButton;
+export default SvgDownloadButton;
