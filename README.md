@@ -37,7 +37,7 @@ The project has the following structure:
 │   ├── App.jsx
 │   ├── DataAnalysisAndVisualization.jsx
 │   ├── NumericValidator.jsx
-│   ├── ParableAnalyzer.jsx
+│   ├── DensityAnalyzer.jsx
 │   ├── D3DensityPlot.jsx
 ├── public/
 │   ├── index.html
