@@ -53,7 +53,7 @@ Here's an example of how to use the `DataAnalysisAndVisualization` component wit
 import React from 'react';
 import DataAnalysisAndVisualization from './DataAnalysisAndVisualization';
 import NumericValidator from './NumericValidator';
-import ParableAnalyzer from './ParableAnalyzer';
+import DensityAnalyzer from './ParableAnalyzer';
 import D3LinePlot from './D3DensityPlot';
 
 const App = () => {
@@ -65,7 +65,7 @@ const App = () => {
   return (
     <DataAnalysisAndVisualization dataLoader={dataLoader}>
       <NumericValidator />
-      <ParableAnalyzer />
+      <DensityAnalyzer />
       <D3DensityPlot width={500} height={300} />
     </DataAnalysisAndVisualization>
   );
