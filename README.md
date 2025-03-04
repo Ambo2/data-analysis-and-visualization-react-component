@@ -1,4 +1,4 @@
-# Data Analysis and Visualization React Component
+# Density Estimation React Component
 
 ## Overview
 
@@ -38,7 +38,7 @@ The project has the following structure:
 │   ├── DataAnalysisAndVisualization.jsx
 │   ├── NumericValidator.jsx
 │   ├── ParableAnalyzer.jsx
-│   ├── D3LinePlot.jsx
+│   ├── D3DensityPlot.jsx
 ├── public/
 │   ├── index.html
 ├── package.json
@@ -47,26 +47,26 @@ The project has the following structure:
 
 ### Example Usage
 
-Here's an example of how to use the `DataAnalysisAndVisualization` component with a `NumericValidator`, `ParableAnalyzer`, and `D3LinePlot`:
+Here's an example of how to use the `DataAnalysisAndVisualization` component with a `NumericValidator`, `ParableAnalyzer`, and `D3DensityPlot`:
 
 ```javascript
 import React from 'react';
 import DataAnalysisAndVisualization from './DataAnalysisAndVisualization';
 import NumericValidator from './NumericValidator';
 import ParableAnalyzer from './ParableAnalyzer';
-import D3LinePlot from './D3LinePlot';
+import D3LinePlot from './D3DensityPlot';
 
 const App = () => {
   const dataLoader = async () => {
     // Example data loading function
-    return [-3, -2, -1, 0, 1, 2, 3];
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   };
 
   return (
     <DataAnalysisAndVisualization dataLoader={dataLoader}>
       <NumericValidator />
       <ParableAnalyzer />
-      <D3LinePlot width={500} height={300} />
+      <D3DensityPlot width={500} height={300} />
     </DataAnalysisAndVisualization>
   );
 };
@@ -90,13 +90,13 @@ A sample validator component that checks if all data items are numeric. See the 
 
 #### ParableAnalyzer
 
-A sample analyzer component that squares all numeric data items. See the implementation in [`ParableAnalyzer.jsx`](./src/ParableAnalyzer.jsx).
+A sample analyzer component calculates the density estimation data items. See the implementation in [`ParableAnalyzer.jsx`](./src/ParableAnalyzer.jsx).
 
-Another approach could involve returning points for a parabolic regression (would be better). But not in this simple example.
+Another approach could involve returning points for a  Kernel Density plot. But not in this simple example.
 
 #### D3LinePlot
 
-A D3.js component for visualizing data as a line plot. See the implementation in [`D3LinePlot.jsx`](./src/D3LinePlot.jsx).
+A D3.js component for visualizing data as a Kernel Density plot. See the implementation in [`D3LinePlot.jsx`](./src/D3LinePlot.jsx).
 
 #### SvgDownloadButton Component
 

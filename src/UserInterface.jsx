@@ -1,25 +1,42 @@
+
 import React, { useState, useCallback } from 'react';
 import { MenuItem, FormControl, Select, InputLabel, Container, Paper } from '@mui/material';
 import DataAnalysisAndVisualization from './DataAnalysisAndVisualization';
 import NumericValidator from './NumericValidator';
-import ParableAnalyzer from './ParableAnalyzer';
-import D3LinePlot from './D3LinePlot';
+import DensityAnalyzer from './DensityAnalyzer';
+import D3DensityPlot from './D3DensityPlot'; // Replace D3LinePlot with D3DensityPlot
 
 /**
- * Generates a data loader function that returns the provided data after a delay.
- *
- * @param {Array<number>} data - The data to be returned by the loader.
- * @returns {Function} An asynchronous function that resolves to the provided data after 5 seconds.
+ * Example data loader functions.
  */
-const dataLoader = (data) => {
-  return async () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(data);
-      }, 5000); // 5 seconds delay to show loading
-    });
-  };
+const exampleDataLoader1 = async () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([1.2, 2.5, 3.7, 4.1, 5.6, 6.3, 7.8, 8.2, 9.1, 10.5]);
+    }, 5000); // 5 seconds delay to show loading
+  });
 };
+
+const exampleDataLoader2 = async () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]);
+    }, 5000);
+  });
+};
+
+const exampleDataLoader3 = async () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
+    }, 5000);
+  });
+};
+
+// Expose data loaders to the global scope
+window.exampleDataLoader1 = exampleDataLoader1;
+window.exampleDataLoader2 = exampleDataLoader2;
+window.exampleDataLoader3 = exampleDataLoader3;
 
 /**
  * UserInterface component for selecting different data loaders and displaying
@@ -28,28 +45,15 @@ const dataLoader = (data) => {
  * @returns {JSX.Element} The rendered component.
  */
 const UserInterface = () => {
-  // Map of data loader keys to their respective data loader functions.
+  // Map of data loader keys to their respective data loader function names
   const dataLoaderMap = {
-    '1': dataLoader([-3, -2, -1, 0, 1, 2, 3]),
-    '2': dataLoader([-2, 0, 2, 4]),
-    '3': dataLoader([1, 2, 3, 4, 5]),
+    '1': 'exampleDataLoader1',
+    '2': 'exampleDataLoader2',
+    '3': 'exampleDataLoader3',
   };
 
-  // State for keeping track of the selected data loader key.
+  // State for keeping track of the selected data loader key
   const [selectedDataLoaderKey, setSelectedDataLoaderKey] = useState('1');
-  // State for keeping track of the selected data loader function.
-  const [selectedDataLoader, setSelectedDataLoader] = useState(() => dataLoaderMap[selectedDataLoaderKey]);
-
-  /**
-   * Handles the change event for the data loader selection dropdown.
-   *
-   * @param {React.ChangeEvent<{ value: unknown }>} event - The change event.
-   */
-  const handleChange = useCallback((event) => {
-    const key = event.target.value;
-    setSelectedDataLoaderKey(key);
-    setSelectedDataLoader(() => dataLoaderMap[key]);
-  }, []);
 
   return (
     <Container component="main">
@@ -60,7 +64,7 @@ const UserInterface = () => {
             <Select
               id="data-loader-select"
               value={selectedDataLoaderKey}
-              onChange={handleChange}
+              onChange={(e) => setSelectedDataLoaderKey(e.target.value)}
               label="Data Loader"
             >
               <MenuItem value="1">Example Data Loader 1</MenuItem>
@@ -70,13 +74,19 @@ const UserInterface = () => {
           </FormControl>
         </form>
       </Paper>
-      <DataAnalysisAndVisualization key={selectedDataLoaderKey} dataLoader={selectedDataLoader}>
+      <DataAnalysisAndVisualization key={selectedDataLoaderKey} dataLoader={dataLoaderMap[selectedDataLoaderKey]}>
         <NumericValidator />
-        <ParableAnalyzer />
-        <D3LinePlot width={1125} height={600} />
+        <DensityAnalyzer />
+        <D3DensityPlot width={1125} height={600} />
       </DataAnalysisAndVisualization>
     </Container>
   );
 };
 
 export default UserInterface;
+
+                        
+
+
+
+

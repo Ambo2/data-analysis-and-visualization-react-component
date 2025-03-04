@@ -6,7 +6,6 @@
 const NumericValidator = () => null;
 
 NumericValidator.validateData = async (data) => {
-  // Perform validation (example: check if all data are numbers)
   if (data.every(item => typeof item === 'number')) {
     return data;
   } else {
@@ -15,3 +14,8 @@ NumericValidator.validateData = async (data) => {
 };
 
 export default NumericValidator;
+
+
+
+
+
