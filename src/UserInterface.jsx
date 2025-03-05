@@ -4,7 +4,7 @@ import { MenuItem, FormControl, Select, InputLabel, Container, Paper } from '@mu
 import DataAnalysisAndVisualization from './DataAnalysisAndVisualization';
 import NumericValidator from './NumericValidator';
 import DensityAnalyzer from './DensityAnalyzer';
-import D3DensityPlot from './D3DensityPlot'; // Replace D3LinePlot with D3DensityPlot
+import D3DensityPlot from './D3DensityPlot'; 
 
 /**
  * Example data loader functions.
