@@ -1,4 +1,4 @@
-# Density Estimation React Component
+# Density Estimation Analysis and Visualization React Component
 
 ## Overview
 
