@@ -88,9 +88,9 @@ The main component that orchestrates the data processing pipeline. See the imple
 
 A sample validator component that checks if all data items are numeric. See the implementation in [`NumericValidator.jsx`](./src/NumericValidator.jsx).
 
-#### ParableAnalyzer
+#### DensityAnalyzer
 
-A sample analyzer component calculates the density estimation data items. See the implementation in [`ParableAnalyzer.jsx`](./src/ParableAnalyzer.jsx).
+A sample analyzer component calculates the density estimation data items. See the implementation in [`ParableAnalyzer.jsx`](./src/DensityAnalyzer.jsx).
 
 Another approach could involve returning points for a  Kernel Density plot. But not in this simple example.
 
