@@ -1,10 +1,10 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { MenuItem, FormControl, Select, InputLabel, Container, Paper } from '@mui/material';
 import DataAnalysisAndVisualization from './DataAnalysisAndVisualization';
 import NumericValidator from './NumericValidator';
 import DensityAnalyzer from './DensityAnalyzer';
-import D3DensityPlot from './D3DensityPlot'; 
+import D3DensityPlot from './D3DensityPlot';
 
 /**
  * Example data loader functions.
@@ -13,7 +13,7 @@ const exampleDataLoader1 = async () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([1.2, 2.5, 3.7, 4.1, 5.6, 6.3, 7.8, 8.2, 9.1, 10.5]);
-    }, 5000); // 5 seconds delay to show loading
+    }, 5000);
   });
 };
 
@@ -33,39 +33,25 @@ const exampleDataLoader3 = async () => {
   });
 };
 
-// Expose data loaders to the global scope
-window.exampleDataLoader1 = exampleDataLoader1;
-window.exampleDataLoader2 = exampleDataLoader2;
-window.exampleDataLoader3 = exampleDataLoader3;
-
-/**
- * UserInterface component for selecting different data loaders and displaying
- * the resulting data in the DataAnalysisAndVisualization component.
- *
- * @returns {JSX.Element} The rendered component.
- */
 const UserInterface = () => {
-  // Map of data loader keys to their respective data loader function names
-  const dataLoaderMap = {
-    '1': 'exampleDataLoader1',
-    '2': 'exampleDataLoader2',
-    '3': 'exampleDataLoader3',
+  const dataLoaders = {
+    '1': exampleDataLoader1,
+    '2': exampleDataLoader2,
+    '3': exampleDataLoader3,
   };
 
-  // State for keeping track of the selected data loader key
-  const [selectedDataLoaderKey, setSelectedDataLoaderKey] = useState('1');
+  const [selectedDataLoader, setSelectedDataLoader] = useState('1');
 
   return (
     <Container component="main">
       <Paper component="section" elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
         <form>
-          <FormControl component="fieldset" fullWidth variant="outlined">
+          <FormControl fullWidth>
             <InputLabel htmlFor="data-loader-select">Data Loader</InputLabel>
             <Select
               id="data-loader-select"
-              value={selectedDataLoaderKey}
-              onChange={(e) => setSelectedDataLoaderKey(e.target.value)}
-              label="Data Loader"
+              value={selectedDataLoader}
+              onChange={(e) => setSelectedDataLoader(e.target.value)}
             >
               <MenuItem value="1">Example Data Loader 1</MenuItem>
               <MenuItem value="2">Example Data Loader 2</MenuItem>
@@ -74,7 +60,7 @@ const UserInterface = () => {
           </FormControl>
         </form>
       </Paper>
-      <DataAnalysisAndVisualization key={selectedDataLoaderKey} dataLoader={dataLoaderMap[selectedDataLoaderKey]}>
+      <DataAnalysisAndVisualization dataLoader={dataLoaders[selectedDataLoader]}>
         <NumericValidator />
         <DensityAnalyzer />
         <D3DensityPlot width={1125} height={600} />
@@ -84,9 +70,3 @@ const UserInterface = () => {
 };
 
 export default UserInterface;
-
-                        
-
-
-
-
