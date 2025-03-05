@@ -47,7 +47,7 @@ The project has the following structure:
 
 ### Example Usage
 
-Here's an example of how to use the `DataAnalysisAndVisualization` component with a `NumericValidator`, `ParableAnalyzer`, and `D3DensityPlot`:
+Here's an example of how to use the `DataAnalysisAndVisualization` component with a `NumericValidator`, `DensityAnalyzer`, and `D3DensityPlot`:
 
 ```javascript
 import React from 'react';
